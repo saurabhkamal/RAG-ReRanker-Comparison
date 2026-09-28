@@ -1,6 +1,7 @@
 qdrant-client
 openai
 python-dotenv
-sentence-transformers     # runs the local cross-encoder. It installs PyTorch, so expect a larger download the first time
+torch
+transformers     
 cohere                    # Cohere's official SDK for their Rerank API.
 requests                  # plain HTTP calls to Jina's rerank API.
