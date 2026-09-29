@@ -11,8 +11,12 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
 import re         # finds the numbers in the LLM's reply, e.g. "4, 1, 7" -> ["4", "1", "7"]
 from rag.chat_model import EuriChatModel     # the chat model used here to rank chunks, not to answer
+import os    # reading the COHERE_API_KEY from the environment
+import cohere   # library to calling the API
 
-
+from dotenv import load_dotenv
+load_dotenv()   
+# Loads .env so COHERE_API_KEY is available
 
 TOP_N = 5    # reranked chunks go to the LLM in the end
 
@@ -188,7 +192,33 @@ Reply with only the chunk numbers in order, separated by commas, for example: 4,
                 scores.append(0)   # the LLM left this chunk out, so it goes to the bottom
 
         return _apply_scores(chunks, scores)    # same helper as the cross encoder: attach scores, sort, number the new tasks
-                
+
+
+class CohereReRanker:
+    # reranker 3: sends the question and all 20 chunks to Cohere's reranking model in ONE call.
+
+    name = "cohere"
+
+    def __init__(self, model_name: str = "rerank-v4.0-pro"):
+        self.client = cohere.ClientV2(api_key=os.environ["COHERE_API_KEY"])
+        # connects to Cohere using key from .env
+        self.model_name = model_name
+
+    def __call__(self, query: str, chunks: list[dict]) -> list[dict]:
+        texts = [chunk["text"] for chunk in chunks]
+        # takes just the text out of each of the 20 chunks
+
+        response = self.client.rerank(model=self.model_name, query=query, documents=texts)
+        # One call to Cohere: the question + 20 texts in, one relevance score per text back
+
+        scores = [0.0] * len(chunks)
+        for result in response.results:
+            scores[result.index] = result.relevance_score
+            # Cohere sends results best-first; result.index says which chunk it was (0 = first chunk)
+            # so we put each score back in that chunk's slot
+
+        return _apply_scores(chunks, scores)      # same helper as before: attach scores, sort, number the new ranks
+
 
 if __name__ == "__main__":
 
@@ -202,7 +232,7 @@ if __name__ == "__main__":
     choice = sys.argv[1] if len(sys.argv) > 1 else "cross"     # the word after the command; if you don't type one, it uses the cross-encoder
 
 
-    reranker = {"cross":CrossEncoderReRanker, "llm": LLMReRanker}[choice]()       # picks the matching reranker class and creates it; the () at the end creates it
+    reranker = {"cross":CrossEncoderReRanker, "llm": LLMReRanker, "cohere": CohereReRanker}[choice]()       # picks the matching reranker class and creates it; the () at the end creates it
                                                                                   # created before the timer starts, so loading time isn't counted as reranking time
 
     start = time.perf_counter()
