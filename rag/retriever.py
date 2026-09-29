@@ -2,22 +2,24 @@
 # Stage 1 of the pipeline: fetch the Top 20 chunks for a question from Qdrant.
 # Read-only: this repo never writes to the collection: ReRankEval's ingest.py built it
 # rerankers.py reorders this list; compare.py shows it as the "before" ranking.
+# Talks to Qdrant's web API with requests instead of qdrant-client,
+# because Windows Smart App Control blocks a file that qdrant-client depends on.
 
 import os                                    # gives access to environment variables
+import requests                              # sends the search request to Qdrant Cloud over the web
 from dotenv import load_dotenv               # load environment variables
-from qdrant_client import QdrantClient       # Python talk to Qdrant cloud database
 from rag.embedding import EuriEmbedder       # turn text into vectors
 
 load_dotenv()       # reads the env
 
-_client = QdrantClient(  # creates one connection to Qdrant, reused for every search in this file
-    url=os.environ["QDRANT_URL"],
-    # the address of your Qdrant Cloud cluster, taken from .env
-    api_key=os.environ["QDRANT_API_KEY"],
-    timeout=60,        # wait up to 60 seconds for Qdrant to reply before giving up
-)
-
 _COLLECTION = os.environ["QDRANT_COLLECTION"]   # the name of the collection to search: "payments_docs", where the 1,507 chunks live
+
+_SEARCH_URL = f"{os.environ['QDRANT_URL'].rstrip('/')}/collections/{_COLLECTION}/points/query"
+# the web address for searching the collection: your Qdrant Cloud cluster + the collection name + "search"
+# rstrip('/') removes a trailing slash from QDRANT_URL, if there is one, so the address has no double "//"
+
+_HEADERS = {"api-key": os.environ["QDRANT_API_KEY"]}
+# your Qdrant key, sent with every request to prove you're allowed in
 
 _embedder = EuriEmbedder()     # creates the embedder once, so every question is turned into a vector the same way
 
@@ -30,18 +32,31 @@ def retrieve(query: str, top_k: int = CANDIDATE_K) -> list[dict]:
     query_vector = _embedder([query])[0]   # turns the question into a vector; the embedder expects a list. 
                                            # and take [0], the first (and only) vector it returns
     
-    results = _client.query_points(collection_name=_COLLECTION, query=query_vector, limit=top_k)
+    response = requests.post(
+        _SEARCH_URL,
+        headers=_HEADERS,
+        json={"query": query_vector, "limit": top_k, "with_payload": True},
+        # the search request: the question's vector, how many chunks to return,
+        # and with_payload=True so each chunk's text, source and page come back too
+        timeout=60,        # wait up to 60 seconds for Qdrant to reply before giving up
+    )
     # asks Qdrant: in this collection, which chunks' vectors are closest to this question's vector?"
     # Qdrant returns the closest top_k chunks, already sorted from the most to least similar
 
+    response.raise_for_status()
+    # if Qdrant replies with an error (wrong key, wrong collection name), stop here and show it
+
+    points = response.json()["result"]["points"]
+    # turns Qdrant's reply into Python and picks out the list of chunks it found
+
     return [    # builds and returns a list with one small dictionary per chunk
         {
-            "id": point.id,           # the chunk's unique ID in Qdrant, useful for matching same chunk across rerankers
-            "vector_rank": rank,      # the chunk's position from vector search: 1 = most similar, 20 = least
-            "score": point.score,     # how similar the chunk is to the question (cosine similarity, higher = closer)
-            **point.payload           # unpacks the stored details of the chunk into this dictionary: text, source, page      
+            "id": point["id"],           # the chunk's unique ID in Qdrant, useful for matching same chunk across rerankers
+            "vector_rank": rank,         # the chunk's position from vector search: 1 = most similar, 20 = least
+            "score": point["score"],     # how similar the chunk is to the question (cosine similarity, higher = closer)
+            **point["payload"]           # unpacks the stored details of the chunk into this dictionary: text, source, page      
         }
-        for rank, point in enumerate(results.points, start=1)   # going through Qdrant's results one by one, counts them as it goes, so each chunk gets rank
+        for rank, point in enumerate(points, start=1)   # going through Qdrant's results one by one, counts them as it goes, so each chunk gets rank
     ]
 
 if __name__ == "__main__":

@@ -13,6 +13,7 @@ import re         # finds the numbers in the LLM's reply, e.g. "4, 1, 7" -> ["4"
 from rag.chat_model import EuriChatModel     # the chat model used here to rank chunks, not to answer
 import os    # reading the COHERE_API_KEY from the environment
 import cohere   # library to calling the API
+import requests   # sending plain web requests; used to call Jina's rerank API
 
 from dotenv import load_dotenv
 load_dotenv()   
@@ -220,6 +221,61 @@ class CohereReRanker:
         return _apply_scores(chunks, scores)      # same helper as before: attach scores, sort, number the new ranks
 
 
+class JinaReRanker:
+    # reranker 4: sends the question and all 20 chunks to Jina's reranking API in ONE call
+
+    name = "jina"
+
+    def __init__(self, model_name: str = "jina-reranker-v3"):
+        self.model_name = model_name
+        self.headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {os.environ['JINA_API_KEY']}" 
+        }
+        # the key from the .env goes to the request header, which proves that you are allowed to use the API
+
+    def __call__(self, query: str, chunks: list[dict]) -> list[dict]:
+        texts = [chunk["text"] for chunk in chunks]
+        # takes just the text out of each of the 20 chunks
+
+        response = requests.post(
+            "https://api.jina.ai/v1/rerank",
+            headers = self.headers,
+            json={"model": self.model_name, "query": query, "documents": texts, "top_n": len(texts), "return_documents": False},
+            # top_n = 20: ask Jina to score and return ALL 20 chunks, not just the best one
+            
+            timeout=60,
+        )
+        # ONE call to Jina: the question + 20 texts in
+        # return_documents:False: we already have the texts, so Jina only needs to send back scores
+
+        response.raise_for_status()    # if Jina replies with an error stop here and show it.
+
+        scores = [0.0] * len(chunks)   # makes one empty slot per chunk, in the same order as chunks
+                                       #     scores = [0.0, 0.0, 0.0]
+
+        for result in response.json()["results"]:
+            # response.json() turns Jina's reply into Python dictionaries and lists
+            # ["results"] picks out the lists of results
+            # the loop takes one result at a time, e.g. {"index": 2, "relevance_score": 0.91}
+
+
+            #{"results": [ {"index": 2, "relevance_score": 0.91},
+            #              {"index": 0, "relevance_score": 0.45},
+            #              {"index": 1, "relevance_score": 0.12} ]}
+
+            scores[result["index"]] = result["relevance_score"]
+             # result["index"]           → which chunk this is about, e.g. 2 (the 3rd chunk)
+             # result["relevance_score"] → its score, e.g. 0.91
+             # puts the score into that chunk's slot:
+             #     after result 1:  [0.0,  0.0,  0.91]
+             #     after result 2:  [0.45, 0.0,  0.91]
+             #     after result 3:  [0.45, 0.12, 0.91]
+
+        return _apply_scores(chunks, scores)
+        # same helper as before: attach scores, sort, number the new ranks
+        # runs ONCE, after the loop has filled all 20 slots
+
 if __name__ == "__main__":
 
     import sys              # reads the word typed after command -> "llm" in: python -m rag.rerankers llm
@@ -232,8 +288,9 @@ if __name__ == "__main__":
     choice = sys.argv[1] if len(sys.argv) > 1 else "cross"     # the word after the command; if you don't type one, it uses the cross-encoder
 
 
-    reranker = {"cross":CrossEncoderReRanker, "llm": LLMReRanker, "cohere": CohereReRanker}[choice]()       # picks the matching reranker class and creates it; the () at the end creates it
-                                                                                  # created before the timer starts, so loading time isn't counted as reranking time
+    reranker = {"cross":CrossEncoderReRanker, "llm": LLMReRanker, "cohere": CohereReRanker, "jina": JinaReRanker}[choice]()       
+    # picks the matching reranker class and creates it; the () at the end creates it
+    # created before the timer starts, so loading time isn't counted as reranking time
 
     start = time.perf_counter()
     reranked = reranker(case["query"], chunks)
