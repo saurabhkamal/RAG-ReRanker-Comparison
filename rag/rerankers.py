@@ -9,6 +9,11 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 # AutoTokenizer: turns text into the number IDs the model reads
 # AutoModelForSequenceClassification: loads a model that outputs one score per input; our cross-encoder is this kind
 
+import re         # finds the numbers in the LLM's reply, e.g. "4, 1, 7" -> ["4", "1", "7"]
+from rag.chat_model import EuriChatModel     # the chat model used here to rank chunks, not to answer
+
+
+
 TOP_N = 5    # reranked chunks go to the LLM in the end
 
 
@@ -101,15 +106,104 @@ class CrossEncoderReRanker:
         return _apply_scores(chunks, scores)     # attach scores, sort, and number the new ranks
 
 
+class LLMReRanker:
+    # reranker 2: shows all 20 chunks to a general-purpose LLM in one call and asks it put them in order
+
+    name = "llm"    # a short label used when printing results
+
+    _SYSTEM_PROMPT = "You are a search result reranker. You reply with only chunk numbers"
+    # Telling the LLM its role, and that the reply must be numbers only, which keeps it easy to read in code
+
+    _PROMPT = """Question: {query}
+Below are {n} text chunks extracted from PDF documents. Some text may be scrambled by the PDF extraction.
+Rank all {n} chunks from most useful to least useful for answering the question.
+A chunk containing the specific details asked for is more useful than one that only mentions the topic in general.
+
+{chunks}
+
+Reply with only the chunk numbers in order, separated by commas, for example: 4, 1, 7, ..."""
+# the instruction; {query}, {n} and {chunks} are filled in fresh for every question
+
+    def __init__(self):
+        self.chat_model = EuriChatModel()      # it reads CHAT_MODEL from .env
+
+    def __call__(self, query: str, chunks: list[dict]) -> list[dict]:
+        numbered = "\n\n".join(f"[{i}] {chunk['text']}" for i, chunk in enumerate(chunks, start=1))
+        # writes the 20 chunks as one block of text, each labelled [1], [2] ... [20]
+        # the LLM refers to chunks by these labels in its reply
+        # numbered now looks like this:
+        #
+        #     [1] The goal of PCI DSS is to protect cardholder data...
+        #
+        #     [2] 3.3 Mask PAN when displayed...
+        #
+        #     [3] Install and maintain a firewall...
+        #
+        # the LLM uses these labels ([1], [2], [3]) to say which chunk it means
+
+        prompt = self._PROMPT.format(query=query, n=len(chunks), chunks=numbered)
+        # fills the three gaps in the instruction template:
+        #     {query}  -> the question
+        #     {n}      -> how many chunks (3 here, 20 in the real run)
+        #     {chunks} -> the numbered block from above
+        #
+        # prompt now looks like this:
+        #
+        #     Question: What does PCI DSS Requirement 3 say about protecting cardholder data?
+        #
+        #     Below are 3 text chunks extracted from PDF documents. Some text may be scrambled ...
+        #     Rank ALL 3 chunks from most useful to least useful for answering the question.
+        #     A chunk containing the specific details asked for is more useful than ...
+        #
+        #     [1] The goal of PCI DSS is to protect cardholder data...
+        #
+        #     [2] 3.3 Mask PAN when displayed...
+        #
+        #     [3] Install and maintain a firewall...
+        #
+        #     Reply with only the chunk numbers in order, separated by commas, for example: 4, 1, 7, ...
+
+
+        reply = self.chat_model(self._SYSTEM_PROMPT, prompt)
+        # sends the system prompt + the prompt above to the LLM in ONE call
+        #
+        # what goes in:
+        #     system: "You are a search result reranker. You reply only with chunk numbers."
+        #     user:   the full prompt shown above
+        #
+        # what comes back (a plain string):
+        #     reply = "2, 1, 3"
+        #
+        # meaning: chunk [2] is most useful, then [1], then [3]
+
+
+        order = [int(n) for n in re.findall(r"\d+", reply)]    # turns the reply text into a list of numbers: "4, 1, 7"  ->  [4, 1, 7]
+
+        scores = []
+        for label in range(1, len(chunks) + 1):
+            # go through the chunks in their original order: 1, 2, 3 ... 20
+            if label in order:
+                scores.append(len(chunks) - order.index(label))
+            else:
+                scores.append(0)   # the LLM left this chunk out, so it goes to the bottom
+
+        return _apply_scores(chunks, scores)    # same helper as the cross encoder: attach scores, sort, number the new tasks
+                
 
 if __name__ == "__main__":
+
+    import sys              # reads the word typed after command -> "llm" in: python -m rag.rerankers llm
 
     from rag.retriever import retrieve              # stage 1: fetch the Top 20 chunks for a question from Qdrant to rerank
     from eval.test_queries import TEST_QUERIES      # the 10 labelled test questions
     case = TEST_QUERIES[7]                      # same PCI DSS Requirement 3 question as on retriever.py, so you can compare against that output
     chunks = retrieve(case["query"])            # runs the vector search for that question and gets the Top 20 chunks
 
-    reranker = CrossEncoderReRanker()          # load the model once before the timer starts, so loading time isn't counted as reranking time
+    choice = sys.argv[1] if len(sys.argv) > 1 else "cross"     # the word after the command; if you don't type one, it uses the cross-encoder
+
+
+    reranker = {"cross":CrossEncoderReRanker, "llm": LLMReRanker}[choice]()       # picks the matching reranker class and creates it; the () at the end creates it
+                                                                                  # created before the timer starts, so loading time isn't counted as reranking time
 
     start = time.perf_counter()
     reranked = reranker(case["query"], chunks)
