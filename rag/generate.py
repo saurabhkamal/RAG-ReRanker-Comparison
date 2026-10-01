@@ -28,7 +28,7 @@ Context:
 
 _chat_model = EuriChatModel()    # creates the chat model client once
 
-def generat_answer(query: str, top_chunks: list[dict]) -> str:
+def generate_answer(query: str, top_chunks: list[dict]) -> str:
     # takes the question and the Top 5 chunks, returns the LLM's answer as text
 
     context = "\n\n".join(f"[{c['source']} p.{c['page']}]\n{c['text']}" for c in top_chunks)
@@ -80,7 +80,7 @@ if __name__ == "__main__":     # python -m rag.generate <reranker> <question>
     # shows which 5 chunks the LLM receives, where each one was before reranking, and flags the answer page
 
     print("\nAnswer:\n")
-    print(generat_answer(case["query"], top_chunks))   # the LLM writes the answer from those 5 chunks only
+    print(generate_answer(case["query"], top_chunks))   # the LLM writes the answer from those 5 chunks only
 
     
 
