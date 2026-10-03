@@ -4,10 +4,7 @@
 # generate.py keeps only the first 5; compare.py shows the full before/after order.
 
 import time       # used to measure how long each reranker takes
-import torch      # runs the model's calculations
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
-# AutoTokenizer: turns text into the number IDs the model reads
-# AutoModelForSequenceClassification: loads a model that outputs one score per input; our cross-encoder is this kind
+
 
 import re         # finds the numbers in the LLM's reply, e.g. "4, 1, 7" -> ["4", "1", "7"]
 from rag.chat_model import EuriChatModel     # the chat model used here to rank chunks, not to answer
@@ -76,6 +73,14 @@ class CrossEncoderReRanker:
     name = "cross-encoder"     # a short label used when printing results
 
     def __init__(self, model_name: str = "cross-encoder/ms-marco-MiniLM-L-6-v2"):
+        import torch
+        from transformers import AutoTokenizer, AutoModelForSequenceClassification
+        # imported here instead of at the top of the file, so the other three rerankers keep working
+        # even when Windows blocks torch's files; only the cross-encoder needs torch and transformers
+
+        self.torch = torch
+        # keeps torch on the reranker, so __call__ below can use it
+
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
         # loads the model's tokenizer, which splits the text into pieces and turns them into numbers
         # this model was trained on real search questions paired with passages that answer them
@@ -100,7 +105,7 @@ class CrossEncoderReRanker:
             return_tensors="pt",   # returns the inputs in the format torch expects
         )
 
-        with torch.no_grad():
+        with self.torch.no_grad():
             # We are only scoring, not training, so torch can skip the extra bookkeeping and run faster
             scores = self.model(**inputs).logits.squeeze(-1).tolist()
             # runs all 20 questions + chunk inputs through the model at once
