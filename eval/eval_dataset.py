@@ -372,3 +372,127 @@ for number, case in enumerate(EVAL_DATASET, start=1):
     case["key_facts"] = KEY_FACTS[number]
 # attaches each question's list to its entry above, so code can use case["key_facts"]
 # e.g. EVAL_DATASET[4]["key_facts"] is question 5's list of 6 facts
+
+
+EXTRA_QUESTIONS = [
+    # ---------- vague ----------
+    {
+        "type": "vague",
+        "query": "How long does a company have to get back to an unhappy customer about a payment problem?",
+        "expected_answer": "A final response to a payment services complaint must be sent by the end of 15 business "
+                           "days after receiving it, or up to 35 business days in exceptional circumstances.",
+        "relevant_pages": [(FCA, 182, 2)],
+        "key_facts": ["Within 15 business days of receiving the complaint",
+                      "Up to 35 business days in exceptional circumstances"],
+    },
+    {
+        "type": "vague",
+        "query": "If hackers stole our customer database, how do we make sure the card numbers in it are useless to them?",
+        "expected_answer": "PCI DSS requires the card number (PAN) to be rendered unreadable wherever it is stored, "
+                           "using strong one-way hashes, truncation, index tokens or strong cryptography.",
+        "relevant_pages": [(PCI, 14, 2), (PCI, 15, 1)],
+        "key_facts": ["Render stored card numbers (PAN) unreadable wherever they are stored",
+                      "Using one-way hashes, truncation, index tokens or strong cryptography"],
+    },
+    {
+        "type": "vague",
+        "query": "How do most people in China pay online?",
+        "expected_answer": "Mostly with digital wallets: 54% of online transactions in China involve wallets such as "
+                           "Alipay or WeChat Pay, and 20% use the local card network China UnionPay.",
+        "relevant_pages": [(STRIPE, 3, 2), (STRIPE, 12, 1)],
+        "key_facts": ["54% of online transactions in China use digital wallets such as Alipay or WeChat Pay",
+                      "20% use the local card network China UnionPay"],
+    },
+ 
+    # ---------- multi-page ----------
+    {
+        "type": "multi-page",
+        "query": "How must a payment institution safeguard customers' money, from the moment it receives it?",
+        "expected_answer": "The obligation starts immediately on receipt. The institution uses the segregation method "
+                           "or the insurance or comparable guarantee method. Under segregation, funds are kept separate "
+                           "from all other funds, and if still held at the end of the business day after receipt, they "
+                           "are deposited in a separate account with an authorised credit institution or the Bank of "
+                           "England, or invested in approved secure, liquid assets held with an authorised custodian.",
+        "relevant_pages": [(FCA, 168, 2), (FCA, 174, 2), (FCA, 175, 2)],
+        "key_facts": ["The obligation to safeguard starts immediately on receipt of the funds",
+                      "Use the segregation method or the insurance or comparable guarantee method",
+                      "Under segregation, keep the funds separate from all other funds the institution holds",
+                      "Funds still held at the end of the business day after receipt go into a separate account with "
+                      "an authorised credit institution or the Bank of England, or into approved secure, liquid assets"],
+    },
+    {
+        "type": "multi-page",
+        "query": "What does PCI DSS Requirement 8 require for identifying and authenticating users?",
+        "expected_answer": "Every user gets a unique ID; users are authenticated with something they know, have or are, "
+                           "with strong passwords; two-factor authentication is required for remote network access from "
+                           "outside the network; and group, shared or generic IDs must not be used.",
+        "relevant_pages": [(PCI, 19, 2), (PCI, 20, 2)],
+        "key_facts": ["Assign every user a unique ID",
+                      "Authenticate users with something they know, have or are, using strong passwords",
+                      "Two-factor authentication for remote network access from outside the network",
+                      "Do not use group, shared or generic IDs"],
+    },
+ 
+    # ---------- cross-document ----------
+    {
+        "type": "cross-document",
+        "query": "What share of online payments are made by card, and how must businesses protect the card numbers they store?",
+        "expected_answer": "Cards account for 41% of online payments globally (Stripe guide). PCI DSS requires stored "
+                           "card numbers (PAN) to be rendered unreadable, e.g. by hashing, truncation, tokens or strong "
+                           "cryptography.",
+        "relevant_pages": [(STRIPE, 17, 2), (PCI, 14, 2)],
+        "key_facts": ["Cards account for 41% of online payments globally",
+                      "Stored card numbers (PAN) must be rendered unreadable, e.g. by hashing, truncation, tokens or "
+                      "strong cryptography"],
+    },
+    {
+        "type": "cross-document",
+        "query": "What do PCI DSS and the FCA each require for authenticating users or customers?",
+        "expected_answer": "PCI DSS requires two-factor authentication for remote network access from outside the "
+                           "network. The FCA's strong customer authentication uses two or more independent elements "
+                           "from knowledge, possession and inherence.",
+        "relevant_pages": [(PCI, 20, 2), (PCI, 19, 1), (FCA, 264, 2)],
+        "key_facts": ["PCI DSS requires two-factor authentication for remote network access from outside the network",
+                      "FCA strong customer authentication uses two or more independent elements",
+                      "Those elements are knowledge, possession and inherence"],
+    },
+    {
+        "type": "cross-document",
+        "query": "What do the FCA guidance and the PFMI expect when operations are seriously disrupted?",
+        "expected_answer": "Payment service providers must notify the FCA without undue delay of a major operational "
+                           "or security incident. Under the PFMI, an FMI's critical IT systems should resume operations "
+                           "within two hours, and it should complete settlement by the end of the day of the disruption.",
+        "relevant_pages": [(FCA, 207, 2), (PFMI, 100, 2), (PFMI, 104, 2)],
+        "key_facts": ["Payment service providers must notify the FCA without undue delay of a major operational or "
+                      "security incident",
+                      "An FMI's critical IT systems should resume operations within two hours",
+                      "An FMI should complete settlement by the end of the day of the disruption"],
+    },
+ 
+    # ---------- unanswerable: the right answer is "the documents don't say" ----------
+    {
+        "type": "unanswerable",
+        "query": "How much does Stripe charge per transaction to process iDEAL payments?",
+        "expected_answer": "The documents do not say. The Stripe guide describes iDEAL but gives no pricing.",
+        "relevant_pages": [],
+        "key_facts": ["Says the documents do not provide this information"],
+    },
+    {
+        "type": "unanswerable",
+        "query": "What is the maximum fine a merchant can receive for failing PCI DSS compliance?",
+        "expected_answer": "The documents do not give fine amounts. The guide only notes that each payment card brand "
+                           "runs its own compliance enforcement programme.",
+        "relevant_pages": [],
+        "key_facts": ["Says the documents do not provide this information"],
+    },
+]
+ 
+EVAL_DATASET.extend(EXTRA_QUESTIONS)
+# adds the 10 extra questions to the end of the dataset, as questions 34-43
+ 
+MULTI_PAGE = {5, 6, 8, 12, 21, 31}
+# questions 1-33 whose answer is spread over several pages; the other 27 are direct lookups
+ 
+for number, case in enumerate(EVAL_DATASET, start=1):
+    case.setdefault("type", "multi-page" if number in MULTI_PAGE else "direct")
+# gives questions 1-33 a type; questions 34-43 already have one, so setdefault leaves them unchanged

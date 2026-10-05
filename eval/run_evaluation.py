@@ -140,11 +140,14 @@ if __name__ == "__main__":
             save_results(results)
             # saves to results/results.json right away, so it isn't lost if the run stops later
 
-            print(f"  {config:7} recall@{TOP_N} {retrieval_scores[f'recall@{TOP_N}']:.2f}  "
-                  f"ndcg@{TOP_N} {retrieval_scores[f'ndcg@{TOP_N}']:.2f}  "
+            retrieval_text = (f"recall@{TOP_N} {retrieval_scores[f'recall@{TOP_N}']:.2f}  "
+                              f"ndcg@{TOP_N} {retrieval_scores[f'ndcg@{TOP_N}']:.2f}"
+                              if retrieval_scores else "no retrieval scores (unanswerable)")
+            # unanswerable questions have no right pages, so they have no retrieval scores
+
+            print(f"  {config:7} {retrieval_text}  "
                   f"faithfulness {generation_scores['faithfulness']:.2f}  "
                   f"correctness {generation_scores['answer_correctness']:.2f}")
-            # one short progress line, e.g. "cohere  recall@5 1.00  ndcg@5 0.92  faithfulness 1.00  correctness 0.83"
+            # one short progress line per configuration
 
     print(f"\nDone: {len(results)} results saved in {RESULTS_FILE}")
-    # final message; with all 33 questions and Cohere only, that's 33 results

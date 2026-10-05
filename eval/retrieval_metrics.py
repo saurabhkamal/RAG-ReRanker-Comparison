@@ -106,6 +106,11 @@ def ndcg_at_k(grades: list[int], relevant_pages: list, k: int) -> float:
 def evaluate_retrieval(chunks: list[dict], relevant_pages: list, k: int = 5) -> dict:
     # runs all six metrics on one ranked list for one question, and returns them together in a dictionary
     # run_evaluation.py calls this once per question per configuration, then averages the results
+
+    if not relevant_pages:
+        return None
+        # unanswerable question: there are no right pages, so retrieval can't be scored
+
     grades = grades_in_order(chunks, relevant_pages)
     return {
         f"hit_rate@{k}": hit_rate_at_k(grades, k),

@@ -38,6 +38,7 @@ Do these four tasks:
    Citations like [file p.7] are not claims; ignore them.
    If the ANSWER only says the documents don't answer the question, it has 0 claims.
 2. Decide if the ANSWER addresses the QUESTION: 1.0 = fully, 0.5 = partly or drifts off topic, 0.0 = not at all.
+   If the CONTEXT does not contain the answer and the ANSWER correctly says so, score 1.0.
 3. List the numbers of the CONTEXT chunks that directly help answer the QUESTION.
    Count a chunk only if it contains information that answers part of the QUESTION.
    A chunk that only mentions the same topic, without answering any part of the QUESTION, does not count.

@@ -1,0 +1,1898 @@
+[
+  {
+    "question": 1,
+    "config": "cohere",
+    "query": "How many 'building blocks' did the CPMI identify to enhance cross-border payments?",
+    "top_pages": [
+      3,
+      5,
+      8,
+      3,
+      4
+    ],
+    "rerank_seconds": 4.328,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.4,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 1.0
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.4,
+      "answer_correctness": 1.0
+    },
+    "answer": "The CPMI identified **19 “building blocks”** to enhance cross-border payments. [enhancing-cross-border-payments-building-blocks-global-roadmap.pdf p.3]",
+    "judgement": {
+      "claims_total": 1,
+      "claims_supported": 1,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        2
+      ],
+      "facts_covered": [
+        1
+      ]
+    }
+  },
+  {
+    "question": 2,
+    "config": "cohere",
+    "query": "How many focus areas are the cross-border payments building blocks arranged into?",
+    "top_pages": [
+      5,
+      6,
+      6,
+      8,
+      6
+    ],
+    "rerank_seconds": 2.024,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.2,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 1.0
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.2,
+      "answer_correctness": 1.0
+    },
+    "answer": "The cross-border payments building blocks are arranged into **five focus areas**. [enhancing-cross-border-payments-building-blocks-global-roadmap.pdf p.5]",
+    "judgement": {
+      "claims_total": 1,
+      "claims_supported": 1,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1
+      ],
+      "facts_covered": [
+        1
+      ]
+    }
+  },
+  {
+    "question": 3,
+    "config": "cohere",
+    "query": "Which payment methods does Stripe recommend for SaaS and subscription businesses?",
+    "top_pages": [
+      6,
+      7,
+      3,
+      11,
+      17
+    ],
+    "rerank_seconds": 1.048,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.4,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 1.0
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.8,
+      "answer_correctness": 1.0
+    },
+    "answer": "Stripe recommends **cards, digital wallets, and bank debits** for SaaS and subscription businesses. [Payment-methods-guide.pdf p.6]",
+    "judgement": {
+      "claims_total": 3,
+      "claims_supported": 3,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "facts_covered": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "question": 4,
+    "config": "cohere",
+    "query": "How quickly is a payment confirmed when a customer pays with Alipay?",
+    "top_pages": [
+      12,
+      4,
+      23,
+      12,
+      33
+    ],
+    "rerank_seconds": 0.754,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.2,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 1.0
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.2,
+      "answer_correctness": 1.0
+    },
+    "answer": "Alipay payments are confirmed immediately. [Payment-methods-guide.pdf p.12]",
+    "judgement": {
+      "claims_total": 1,
+      "claims_supported": 1,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1
+      ],
+      "facts_covered": [
+        1
+      ]
+    }
+  },
+  {
+    "question": 5,
+    "config": "cohere",
+    "query": "What do the Electronic Money Regulations (EMRs) govern?",
+    "top_pages": [
+      6,
+      6,
+      22,
+      152,
+      23
+    ],
+    "rerank_seconds": 1.366,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.4,
+      "recall@5": 0.6666666666666666,
+      "mrr": 1.0,
+      "map": 0.6464646464646464,
+      "ndcg@5": 0.8472668887613066
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 1.0,
+      "answer_correctness": 1.0
+    },
+    "answer": "The Electronic Money Regulations (EMRs) govern:\n\n- The authorisation or registration of electronic money institutions (EMIs), including applicable standards, capital requirements, and safeguarding requirements. [payment-services-electronic-money-approach.pdf p.6]\n- Conduct-of-business rules for issuing and redeeming e-money, including issuing it at par value and prohibiting interest or benefits linked to how long it is held. [payment-services-electronic-money-approach.pdf p.152]\n- With certain exceptions, everyone who issues e-money in the UK. [payment-services-electronic-money-approach.pdf p.22]",
+    "judgement": {
+      "claims_total": 9,
+      "claims_supported": 9,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "facts_covered": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  {
+    "question": 6,
+    "config": "cohere",
+    "query": "What is the temporary permissions regime (TPR) for EEA payment firms?",
+    "top_pages": [
+      7,
+      76,
+      13,
+      76,
+      77
+    ],
+    "rerank_seconds": 1.9,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.6,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 0.8666666666666667,
+      "ndcg@5": 0.9790187994940358
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 1.0,
+      "answer_correctness": 0.8
+    },
+    "answer": "The temporary permissions regime (TPR) is a transitional UK scheme for EEA-authorised payment institutions (PIs), electronic money institutions (EMIs), and registered account information service providers (RAISPs) that passported into the UK immediately before IP Completion Day on 31 December 2020. [payment-services-electronic-money-approach.pdf p.7] [payment-services-electronic-money-approach.pdf p.76]\n\nIt allows eligible firms that notified the FCA before IP Completion Day to continue operating and offering new business in the UK as though authorised or registered by the FCA, but only within the scope of their previously passported permissions and for a limited period. [payment-services-electronic-money-approach.pdf p.7] [payment-services-electronic-money-approach.pdf p.76]\n\nDuring that period, firms are deemed authorised or registered under the Payment Services Regulations 2017 or Electronic Money Regulations 2011, as applicable, before applying for UK authorisation. [payment-services-electronic-money-approach.pdf p.7] [payment-services-electronic-money-approach.pdf p.77]\n\nAn EEA payment institution in the TPR must establish a UK legal entity to meet the conditions for UK authorisation under the Payment Services Regulations 2017. [payment-services-electronic-money-approach.pdf p.7]",
+    "judgement": {
+      "claims_total": 14,
+      "claims_supported": 14,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "facts_covered": [
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "question": 7,
+    "config": "cohere",
+    "query": "What are the 12 requirements of the PCI Data Security Standard?",
+    "top_pages": [
+      9,
+      40,
+      3,
+      25,
+      11
+    ],
+    "rerank_seconds": 0.918,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.4,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 1.0
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.4,
+      "answer_correctness": 1.0
+    },
+    "answer": "The 12 PCI Data Security Standard requirements are:\n\n1. Install and maintain a firewall configuration to protect cardholder data. [PCIDSS_QRGv3.pdf p.9]  \n2. Do not use vendor-supplied defaults for system passwords and other security parameters. [PCIDSS_QRGv3.pdf p.9]  \n3. Protect stored cardholder data. [PCIDSS_QRGv3.pdf p.9]  \n4. Encrypt transmission of cardholder data across open, public networks. [PCIDSS_QRGv3.pdf p.9]  \n5. Protect all systems against malware and regularly update antivirus software or programs. [PCIDSS_QRGv3.pdf p.9]  \n6. Develop and maintain secure systems and applications. [PCIDSS_QRGv3.pdf p.9]  \n7. Restrict access to cardholder data by business need to know. [PCIDSS_QRGv3.pdf p.9]  \n8. Identify and authenticate access to system components. [PCIDSS_QRGv3.pdf p.9]  \n9. Restrict physical access to cardholder data. [PCIDSS_QRGv3.pdf p.9]  \n10. Track and monitor all access to network resources and cardholder data. [PCIDSS_QRGv3.pdf p.9]  \n11. Regularly test security systems and processes. [PCIDSS_QRGv3.pdf p.9]  \n12. Maintain a policy that addresses information security for all personnel. [PCIDSS_QRGv3.pdf p.9]",
+    "judgement": {
+      "claims_total": 12,
+      "claims_supported": 12,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        2
+      ],
+      "facts_covered": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    }
+  },
+  {
+    "question": 8,
+    "config": "cohere",
+    "query": "What does PCI DSS Requirement 3 say about protecting cardholder data?",
+    "top_pages": [
+      14,
+      9,
+      15,
+      40,
+      14
+    ],
+    "rerank_seconds": 1.617,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.6,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 0.9514426589871553
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 1.0,
+      "answer_correctness": 1.0
+    },
+    "answer": "PCI DSS Requirement 3 requires organizations to **protect stored cardholder data**. [PCIDSS_QRGv3.pdf p.14]\n\nSpecifically, organizations must:\n\n- Store cardholder data only when necessary for business, legal, or regulatory purposes, document retention requirements, and purge unnecessary data at least quarterly. [PCIDSS_QRGv3.pdf p.14]\n- Never store sensitive authentication data after authorization, even if encrypted, and make it unrecoverable when authorization is complete; issuers and related entities may retain it when justified and securely stored. [PCIDSS_QRGv3.pdf p.14]\n- Mask displayed primary account numbers (PANs), showing no more than the first six and last four digits unless an authorized person has a legitimate business need to see the full PAN. [PCIDSS_QRGv3.pdf p.14]\n- Render stored PAN unreadable wherever it is kept, including portable media, backups, logs, and wireless data stores, using methods such as hashing, truncation, tokens, or strong cryptography. [PCIDSS_QRGv3.pdf p.14]\n- Document and implement protections and management procedures for cryptographic keys. [PCIDSS_QRGv3.pdf p.15]\n- Ensure related security policies and operational procedures are documented, in use, and known to affected parties. [PCIDSS_QRGv3.pdf p.15]",
+    "judgement": {
+      "claims_total": 14,
+      "claims_supported": 14,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "facts_covered": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  {
+    "question": 9,
+    "config": "cohere",
+    "query": "How does this report define a financial market infrastructure (FMI)?",
+    "top_pages": [
+      13,
+      13,
+      11,
+      13,
+      11
+    ],
+    "rerank_seconds": 0.95,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.2,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 1.0
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.8,
+      "answer_correctness": 1.0
+    },
+    "answer": "The report defines a financial market infrastructure (FMI) as **a multilateral system among participating institutions—including the system operator—used to clear, settle, or record payments, securities, derivatives, or other financial transactions**. [principles-financial-market-infrastructures.pdf p.13]\n\nThis definition includes five key FMI types: **payment systems, central securities depositories (CSDs), securities settlement systems (SSSs), central counterparties (CCPs), and trade repositories (TRs)**. [principles-financial-market-infrastructures.pdf p.13]\n\nIt excludes **bilateral relationships between financial institutions and their customers, such as traditional correspondent banking**. [principles-financial-market-infrastructures.pdf p.13]",
+    "judgement": {
+      "claims_total": 5,
+      "claims_supported": 5,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "facts_covered": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "question": 10,
+    "config": "cohere",
+    "query": "Besides systemic risk, what other types of risk do financial market infrastructures face?",
+    "top_pages": [
+      24,
+      3,
+      25,
+      25,
+      38
+    ],
+    "rerank_seconds": 2.107,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.2,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 1.0
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 1.0,
+      "answer_correctness": 1.0
+    },
+    "answer": "Besides systemic risk, financial market infrastructures face:\n\n- Legal risk\n- Credit risk\n- Liquidity risk\n- General business risk\n- Custody risk\n- Investment risk\n- Operational risk [principles-financial-market-infrastructures.pdf p.24]\n\nThey should also consider relevant market (or price) and concentration risks. [principles-financial-market-infrastructures.pdf p.38]",
+    "judgement": {
+      "claims_total": 9,
+      "claims_supported": 9,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "facts_covered": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  },
+  {
+    "question": 11,
+    "config": "cohere",
+    "query": "How many underlying frictions in cross-border payments did the Stage 1 assessment identify?",
+    "top_pages": [
+      3,
+      4,
+      5,
+      3,
+      6
+    ],
+    "rerank_seconds": 2.065,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.6,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 1.0
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.4,
+      "answer_correctness": 1.0
+    },
+    "answer": "The Stage 1 assessment identified **seven underlying frictions** in cross-border payments. [enhancing-cross-border-payments-building-blocks-global-roadmap.pdf p.3]",
+    "judgement": {
+      "claims_total": 1,
+      "claims_supported": 1,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        2
+      ],
+      "facts_covered": [
+        1
+      ]
+    }
+  },
+  {
+    "question": 12,
+    "config": "cohere",
+    "query": "What does focus area E of the cross-border payments roadmap explore?",
+    "top_pages": [
+      6,
+      9,
+      5,
+      6,
+      9
+    ],
+    "rerank_seconds": 2.418,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.6,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 1.0
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.6,
+      "answer_correctness": 1.0
+    },
+    "answer": "Focus area E explores how emerging payment infrastructures and arrangements could enhance cross-border payments, specifically:\n\n- New multilateral cross-border payment platforms and arrangements.\n- Central bank digital currencies (CBDCs), including an international dimension in their design.\n- Global stablecoin arrangements and their soundness. [enhancing-cross-border-payments-building-blocks-global-roadmap.pdf pp.6, 9]\n\nIt is more exploratory than the other focus areas because these technologies are not yet broadly implemented, and some remain in the design or theoretical stage. [enhancing-cross-border-payments-building-blocks-global-roadmap.pdf p.6]",
+    "judgement": {
+      "claims_total": 7,
+      "claims_supported": 7,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        2,
+        3
+      ],
+      "facts_covered": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "question": 13,
+    "config": "cohere",
+    "query": "Who chairs the CPMI Cross-border Payments Task Force?",
+    "top_pages": [
+      10,
+      3,
+      11,
+      11,
+      4
+    ],
+    "rerank_seconds": 4.128,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.2,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 1.0
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.2,
+      "answer_correctness": 1.0
+    },
+    "answer": "Victoria Cleland of the Bank of England chairs the CPMI Cross-border Payments Task Force. [enhancing-cross-border-payments-building-blocks-global-roadmap.pdf p.10]",
+    "judgement": {
+      "claims_total": 1,
+      "claims_supported": 1,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1
+      ],
+      "facts_covered": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "question": 14,
+    "config": "cohere",
+    "query": "What does building block 14 propose for cross-border payment message formats?",
+    "top_pages": [
+      9,
+      6,
+      6,
+      9,
+      10
+    ],
+    "rerank_seconds": 0.754,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.2,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 1.0
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.4,
+      "answer_correctness": 1.0
+    },
+    "answer": "Building block 14 proposes adopting common payment message formats—specifically a harmonised version of ISO 20022—along with common rules for mapping and converting data between different formats, including legacy formats. [enhancing-cross-border-payments-building-blocks-global-roadmap.pdf p.9]",
+    "judgement": {
+      "claims_total": 2,
+      "claims_supported": 2,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        4
+      ],
+      "facts_covered": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "question": 15,
+    "config": "cohere",
+    "query": "Which payment methods does Stripe recommend for e-commerce and marketplaces?",
+    "top_pages": [
+      5,
+      7,
+      5,
+      9,
+      6
+    ],
+    "rerank_seconds": 0.844,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.4,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 1.0
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.2,
+      "answer_correctness": 1.0
+    },
+    "answer": "Stripe recommends the following payment methods for e-commerce and marketplaces:\n\n- Cards\n- Digital wallets\n- Authenticated bank debits\n- “Buy now, pay later” options [Payment-methods-guide.pdf p.5]",
+    "judgement": {
+      "claims_total": 4,
+      "claims_supported": 4,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1
+      ],
+      "facts_covered": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "question": 16,
+    "config": "cohere",
+    "query": "What share of online payments globally do credit and debit cards account for?",
+    "top_pages": [
+      17,
+      2,
+      3,
+      7,
+      4
+    ],
+    "rerank_seconds": 15.979,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.2,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 1.0
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.2,
+      "answer_correctness": 1.0
+    },
+    "answer": "Credit and debit cards account for **41% of online payments globally**. [Payment-methods-guide.pdf p.17]",
+    "judgement": {
+      "claims_total": 1,
+      "claims_supported": 1,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1
+      ],
+      "facts_covered": [
+        1
+      ]
+    }
+  },
+  {
+    "question": 17,
+    "config": "cohere",
+    "query": "What market share does Bacs Direct Debit have in the United Kingdom?",
+    "top_pages": [
+      14,
+      103,
+      131,
+      2,
+      130
+    ],
+    "rerank_seconds": 16.717,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.2,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 1.0
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.2,
+      "answer_correctness": 1.0
+    },
+    "answer": "Bacs Direct Debit accounts for **14% of the market share in the United Kingdom**. [Payment-methods-guide.pdf p.14]",
+    "judgement": {
+      "claims_total": 1,
+      "claims_supported": 1,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1
+      ],
+      "facts_covered": [
+        1
+      ]
+    }
+  },
+  {
+    "question": 18,
+    "config": "cohere",
+    "query": "How popular is iDEAL for online payments in the Netherlands?",
+    "top_pages": [
+      23,
+      6,
+      2,
+      32,
+      4
+    ],
+    "rerank_seconds": 8.666,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.2,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 1.0
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.2,
+      "answer_correctness": 1.0
+    },
+    "answer": "iDEAL is the **most popular online payment method in the Netherlands**, accounting for **close to 55% of online payments**. [Payment-methods-guide.pdf p.23]",
+    "judgement": {
+      "claims_total": 2,
+      "claims_supported": 2,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1
+      ],
+      "facts_covered": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "question": 19,
+    "config": "cohere",
+    "query": "According to a Stripe study, what percentage of online businesses sell internationally?",
+    "top_pages": [
+      2,
+      3,
+      8,
+      7,
+      5
+    ],
+    "rerank_seconds": 2.221,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.2,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 1.0
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.2,
+      "answer_correctness": 1.0
+    },
+    "answer": "70% of online businesses sell internationally. [Payment-methods-guide.pdf p.2]",
+    "judgement": {
+      "claims_total": 1,
+      "claims_supported": 1,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1
+      ],
+      "facts_covered": [
+        1
+      ]
+    }
+  },
+  {
+    "question": 20,
+    "config": "cohere",
+    "query": "How long do payment service providers have to send a final response to a payment services complaint?",
+    "top_pages": [
+      182,
+      182,
+      182,
+      183,
+      180
+    ],
+    "rerank_seconds": 3.222,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.2,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 1.0
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.8,
+      "answer_correctness": 1.0
+    },
+    "answer": "Payment service providers must send a final response by the end of **15 business days** after the day they receive the complaint. In exceptional circumstances beyond the provider’s control, this may be extended to **35 business days**. [payment-services-electronic-money-approach.pdf p.182]",
+    "judgement": {
+      "claims_total": 2,
+      "claims_supported": 2,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "facts_covered": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "question": 21,
+    "config": "cohere",
+    "query": "What conditions must a business meet to register as a small payment institution?",
+    "top_pages": [
+      47,
+      46,
+      25,
+      47,
+      47
+    ],
+    "rerank_seconds": 1.792,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.6,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 0.8145672023038535
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.6,
+      "answer_correctness": 1.0
+    },
+    "answer": "To register as a small payment institution, a business must:\n\n- Have an average monthly value of payment transactions, including transactions carried out by its agents, of no more than €3 million. For a new business or one operating for less than 12 months, this may be based on projected transactions over a 12-month period. [payment-services-electronic-money-approach.pdf p.47] [payment-services-electronic-money-approach.pdf p.46]\n- Not intend to provide account information services (AIS) or payment initiation services (PIS). [payment-services-electronic-money-approach.pdf p.46]\n- Self-certify in its application that it will meet the monthly transaction-value limit and have a clear, established process for monitoring that limit after registration. [payment-services-electronic-money-approach.pdf p.47]",
+    "judgement": {
+      "claims_total": 6,
+      "claims_supported": 6,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        2,
+        3
+      ],
+      "facts_covered": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "question": 22,
+    "config": "cohere",
+    "query": "What are the two methods an institution can use to safeguard relevant funds?",
+    "top_pages": [
+      174,
+      176,
+      175,
+      177,
+      168
+    ],
+    "rerank_seconds": 3.091,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.4,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 0.7,
+      "ndcg@5": 0.9327783893101107
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 1.0,
+      "answer_correctness": 0.6666666666666666
+    },
+    "answer": "The two safeguarding methods are:\n\n1. **The segregation method.** [payment-services-electronic-money-approach.pdf p.174]  \n2. **The insurance or comparable guarantee method.** [payment-services-electronic-money-approach.pdf p.174]",
+    "judgement": {
+      "claims_total": 2,
+      "claims_supported": 2,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "facts_covered": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "question": 23,
+    "config": "cohere",
+    "query": "What is strong customer authentication based on?",
+    "top_pages": [
+      264,
+      266,
+      264,
+      263,
+      265
+    ],
+    "rerank_seconds": 1.265,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.2,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 1.0
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.6,
+      "answer_correctness": 1.0
+    },
+    "answer": "Strong customer authentication is based on at least two independent factors from different categories:\n\n- **Knowledge:** something known only to the customer.\n- **Possession:** something held only by the customer.\n- **Inherence:** something inherent to the customer.  \n[payment-services-electronic-money-approach.pdf p.264]\n\nA breach of one factor must not compromise the reliability of another factor. [payment-services-electronic-money-approach.pdf p.264]",
+    "judgement": {
+      "claims_total": 5,
+      "claims_supported": 5,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        2,
+        3
+      ],
+      "facts_covered": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "question": 24,
+    "config": "cohere",
+    "query": "How often must the safeguarding return be submitted, and by when?",
+    "top_pages": [
+      203,
+      203,
+      170,
+      195,
+      203
+    ],
+    "rerank_seconds": 0.98,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.2,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 1.0
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.2,
+      "answer_correctness": 1.0
+    },
+    "answer": "The REP027 Safeguarding Return must be submitted **monthly**, within **15 business days after the end of each month**. [payment-services-electronic-money-approach.pdf p.203]",
+    "judgement": {
+      "claims_total": 2,
+      "claims_supported": 2,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1
+      ],
+      "facts_covered": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "question": 25,
+    "config": "cohere",
+    "query": "How long must audit trail history be retained under PCI DSS?",
+    "top_pages": [
+      23,
+      22,
+      22,
+      14,
+      9
+    ],
+    "rerank_seconds": 1.75,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.2,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 1.0
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.2,
+      "answer_correctness": 1.0
+    },
+    "answer": "Audit trail history must be retained for **at least one year**, with **at least three months immediately available for analysis**. [PCIDSS_QRGv3.pdf p.23]",
+    "judgement": {
+      "claims_total": 2,
+      "claims_supported": 2,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1
+      ],
+      "facts_covered": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "question": 26,
+    "config": "cohere",
+    "query": "How often does PCI DSS require penetration testing?",
+    "top_pages": [
+      24,
+      23,
+      3,
+      25,
+      9
+    ],
+    "rerank_seconds": 1.15,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.2,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 1.0
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.2,
+      "answer_correctness": 1.0
+    },
+    "answer": "PCI DSS requires internal and external penetration testing **at least annually and after any upgrade or modification**. [PCIDSS_QRGv3.pdf p.24]",
+    "judgement": {
+      "claims_total": 1,
+      "claims_supported": 1,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1
+      ],
+      "facts_covered": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "question": 27,
+    "config": "cohere",
+    "query": "What does PCI DSS require for remote network access from outside the network?",
+    "top_pages": [
+      20,
+      12,
+      16,
+      9,
+      25
+    ],
+    "rerank_seconds": 0.923,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.2,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 1.0
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.6,
+      "answer_correctness": 1.0
+    },
+    "answer": "PCI DSS requires:\n\n- Two-factor authentication for all remote network access originating outside the network, including access by employees, administrators, and third parties such as vendors providing support or maintenance. Using two passwords does not qualify as two-factor authentication. [PCIDSS_QRGv3.pdf p.20]\n- Personal firewall software on mobile or employee-owned devices that connect to the Internet outside the network and are also used to access the organization’s network. [PCIDSS_QRGv3.pdf p.12]\n- Usage policies defining the proper use of remote access by personnel. [PCIDSS_QRGv3.pdf p.25]\n- Strong cryptography and security protocols, such as SSL/TLS, SSH, or IPsec, when cardholder data is transmitted over open, public networks. [PCIDSS_QRGv3.pdf p.16]",
+    "judgement": {
+      "claims_total": 5,
+      "claims_supported": 5,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        2,
+        5
+      ],
+      "facts_covered": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "question": 28,
+    "config": "cohere",
+    "query": "How can network segmentation reduce PCI DSS scope?",
+    "top_pages": [
+      31,
+      30,
+      31,
+      12,
+      30
+    ],
+    "rerank_seconds": 3.863,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.4,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 1.0
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.2,
+      "answer_correctness": 1.0
+    },
+    "answer": "Network segmentation reduces PCI DSS scope by isolating the cardholder data environment (CDE) from the rest of the entity’s network. [PCIDSS_QRGv3.pdf p.31]\n\nA system component may be considered out of scope only when it is properly segmented from the CDE so that, even if compromised, it could not affect the CDE’s security. [PCIDSS_QRGv3.pdf p.31]\n\nReducing scope can lower assessment costs, decrease the cost and difficulty of implementing and maintaining PCI DSS controls, and reduce organizational risk. [PCIDSS_QRGv3.pdf p.31]",
+    "judgement": {
+      "claims_total": 6,
+      "claims_supported": 6,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1
+      ],
+      "facts_covered": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "question": 29,
+    "config": "cohere",
+    "query": "What is the PCI DSS Self-Assessment Questionnaire (SAQ)?",
+    "top_pages": [
+      33,
+      10,
+      10,
+      27,
+      34
+    ],
+    "rerank_seconds": 1.436,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.4,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 0.7,
+      "ndcg@5": 0.9327783893101107
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.8,
+      "answer_correctness": 1.0
+    },
+    "answer": "The PCI DSS Self-Assessment Questionnaire (SAQ) is a validation tool for eligible merchants and service providers to report the results of their PCI DSS self-assessment when they are not required to submit a Report on Compliance (ROC). [PCIDSS_QRGv3.pdf p.33]\n\nIt contains yes-or-no questions for each applicable PCI DSS requirement. If an answer is “no,” the organization may need to provide a future remediation date and describe the associated actions. [PCIDSS_QRGv3.pdf p.33]\n\nDifferent SAQs are available for different merchant and business environments. Organizations should contact their acquiring bank, acquiring financial institution, or payment card brand to determine which SAQ applies. [PCIDSS_QRGv3.pdf p.33] [PCIDSS_QRGv3.pdf p.10]",
+    "judgement": {
+      "claims_total": 7,
+      "claims_supported": 7,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "facts_covered": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "question": 30,
+    "config": "cohere",
+    "query": "How quickly should an FMI be able to resume operations after a disruption?",
+    "top_pages": [
+      104,
+      40,
+      103,
+      100,
+      38
+    ],
+    "rerank_seconds": 1.152,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.4,
+      "recall@5": 0.6666666666666666,
+      "mrr": 1.0,
+      "map": 0.5,
+      "ndcg@5": 0.7958830702855284
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.4,
+      "answer_correctness": 1.0
+    },
+    "answer": "An FMI should aim to resume operations **within two hours** after a disruptive event, while backup systems should ideally begin processing immediately. It should also be able to complete settlement by the end of the day, even in extreme circumstances. [principles-financial-market-infrastructures.pdf p.104]",
+    "judgement": {
+      "claims_total": 3,
+      "claims_supported": 3,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        3
+      ],
+      "facts_covered": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "question": 31,
+    "config": "cohere",
+    "query": "What default scenario should a systemically important CCP be able to cover with its financial resources?",
+    "top_pages": [
+      165,
+      49,
+      43,
+      67,
+      43
+    ],
+    "rerank_seconds": 0.702,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.2,
+      "recall@5": 0.3333333333333333,
+      "mrr": 0.3333333333333333,
+      "map": 0.1111111111111111,
+      "ndcg@5": 0.12103812696590094
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.6,
+      "answer_correctness": 0.75
+    },
+    "answer": "A CCP that is systemically important in multiple jurisdictions should maintain enough financial resources to cover the default of the **two participants and their affiliates that would potentially cause the largest aggregate credit exposure**, under extreme but plausible market conditions. [principles-financial-market-infrastructures.pdf p.43]",
+    "judgement": {
+      "claims_total": 1,
+      "claims_supported": 1,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        2,
+        3
+      ],
+      "facts_covered": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "question": 32,
+    "config": "cohere",
+    "query": "By when should an FMI provide final settlement?",
+    "top_pages": [
+      70,
+      70,
+      71,
+      70,
+      71
+    ],
+    "rerank_seconds": 2.33,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.4,
+      "recall@5": 0.6666666666666666,
+      "mrr": 1.0,
+      "map": 0.5555555555555555,
+      "ndcg@5": 0.8344475896326595
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 1.0,
+      "answer_correctness": 1.0
+    },
+    "answer": "An FMI should provide final settlement **no later than the end of the value date**, and preferably **intraday or in real time** where necessary or preferable. [principles-financial-market-infrastructures.pdf p.70]",
+    "judgement": {
+      "claims_total": 2,
+      "claims_supported": 2,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "facts_covered": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "question": 33,
+    "config": "cohere",
+    "query": "What is a central counterparty (CCP)?",
+    "top_pages": [
+      161,
+      15,
+      149,
+      163,
+      149
+    ],
+    "rerank_seconds": 1.129,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.4,
+      "recall@5": 1.0,
+      "mrr": 0.5,
+      "map": 0.5833333333333333,
+      "ndcg@5": 0.6590018048024133
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 1.0,
+      "answer_correctness": 1.0
+    },
+    "answer": "A central counterparty (CCP) is an entity that places itself between counterparties to financial-market contracts, becoming the buyer to every seller and the seller to every buyer, thereby ensuring the performance of open contracts. [principles-financial-market-infrastructures.pdf p.15] It becomes the counterparty to trades through novation, an open-offer system, or a similar legally binding arrangement. [principles-financial-market-infrastructures.pdf p.15]",
+    "judgement": {
+      "claims_total": 4,
+      "claims_supported": 4,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "facts_covered": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "question": 34,
+    "config": "cohere",
+    "query": "How long does a company have to get back to an unhappy customer about a payment problem?",
+    "top_pages": [
+      182,
+      182,
+      131,
+      182,
+      127
+    ],
+    "rerank_seconds": 1.669,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.2,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 1.0
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.4,
+      "answer_correctness": 1.0
+    },
+    "answer": "For most payment-service or e-money complaints, the company must send a final response by the end of **15 business days** after receiving the complaint. In exceptional circumstances beyond the provider’s control, this can be extended to **35 business days**. [payment-services-electronic-money-approach.pdf p.182]",
+    "judgement": {
+      "claims_total": 2,
+      "claims_supported": 2,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        2
+      ],
+      "facts_covered": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "question": 35,
+    "config": "cohere",
+    "query": "If hackers stole our customer database, how do we make sure the card numbers in it are useless to them?",
+    "top_pages": [
+      14,
+      14,
+      15,
+      16,
+      9
+    ],
+    "rerank_seconds": 0.809,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.4,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 0.8333333333333333,
+      "ndcg@5": 0.9639404333166532
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.6,
+      "answer_correctness": 1.0
+    },
+    "answer": "To make stolen card data unusable:\n\n- Render every stored Primary Account Number (PAN) unreadable—including in the database, backups, logs, portable media, and wireless-network storage—using an entire-PAN strong one-way hash, truncation, index tokens with securely stored pads, or strong cryptography. [PCIDSS_QRGv3.pdf p.14]\n- Protect encryption keys from disclosure and misuse, and fully document and implement cryptographic key-management procedures. [PCIDSS_QRGv3.pdf p.15]\n- Do not store cardholder data unless necessary; retain it only as long as required for business, legal, or regulatory purposes, and purge unnecessary data at least quarterly. [PCIDSS_QRGv3.pdf p.14]\n- Never store sensitive authentication data after authorization, even if encrypted; this includes full track data, card verification codes such as CAV2/CVC2/CVV2/CID, and PIN/PIN blocks. [PCIDSS_QRGv3.pdf p.15]",
+    "judgement": {
+      "claims_total": 10,
+      "claims_supported": 10,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        2,
+        3
+      ],
+      "facts_covered": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "question": 36,
+    "config": "cohere",
+    "query": "How do most people in China pay online?",
+    "top_pages": [
+      3,
+      12,
+      33,
+      17,
+      1
+    ],
+    "rerank_seconds": 0.788,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.4,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 1.0,
+      "ndcg@5": 1.0
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.2,
+      "answer_correctness": 1.0
+    },
+    "answer": "Most people in China pay online using digital wallets such as Alipay or WeChat Pay, which account for 54% of online transactions. Another 20% use China UnionPay. [Payment-methods-guide.pdf p.3]",
+    "judgement": {
+      "claims_total": 2,
+      "claims_supported": 2,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1
+      ],
+      "facts_covered": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "question": 37,
+    "config": "cohere",
+    "query": "How must a payment institution safeguard customers' money, from the moment it receives it?",
+    "top_pages": [
+      173,
+      168,
+      174,
+      173,
+      173
+    ],
+    "rerank_seconds": 1.083,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.4,
+      "recall@5": 0.6666666666666666,
+      "mrr": 0.5,
+      "map": 0.4797979797979797,
+      "ndcg@5": 0.5307212739772436
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 1.0,
+      "answer_correctness": 1.0
+    },
+    "answer": "- The safeguarding obligation begins immediately when the institution receives the relevant funds. Funds are received when the institution becomes entitled to them—for example, when they are credited to an account in its name—or, for cash, when the cash is handed over. [payment-services-electronic-money-approach.pdf p.173]\n- The institution may safeguard funds through either **segregation** or **insurance/comparable guarantee**, and it may use different methods for different funds if its records and monthly safeguarding return clearly identify which method applies. [payment-services-electronic-money-approach.pdf p.174]\n- Under segregation, it must keep relevant funds separate from all its other funds. If they remain held at the end of the business day following receipt, it must place them in a separate account with an authorised credit institution or the Bank of England, or invest them in secure, liquid assets. [payment-services-electronic-money-approach.pdf p.174] [payment-services-electronic-money-approach.pdf p.168]\n- It must generally continue safeguarding until the money is paid to the payee or the payee’s payment service provider; in a chain of providers, its obligation ends when it transfers the funds to another provider holding them for the payment service user. [payment-services-electronic-money-approach.pdf p.173]\n- The funds must be safeguarded for the payer’s or payee’s benefit, not merely for another institution in the payment chain. [payment-services-electronic-money-approach.pdf p.173]\n- If an agent or distributor receives the funds, the institution’s obligation begins at that receipt and remains the institution’s responsibility until the funds are appropriately paid or transferred. [payment-services-electronic-money-approach.pdf p.173]",
+    "judgement": {
+      "claims_total": 14,
+      "claims_supported": 14,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "facts_covered": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "question": 38,
+    "config": "cohere",
+    "query": "What does PCI DSS Requirement 8 require for identifying and authenticating users?",
+    "top_pages": [
+      19,
+      19,
+      20,
+      9,
+      40
+    ],
+    "rerank_seconds": 0.955,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.4,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 0.8333333333333333,
+      "ndcg@5": 0.9197207891481876
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.6,
+      "answer_correctness": 1.0
+    },
+    "answer": "PCI DSS Requirement 8 requires organizations to:\n\n- Assign every user a unique ID before allowing access to system components or cardholder data, so actions can be traced to known, authorized individuals. This applies to administrative accounts, point-of-sale accounts with administrative capabilities, and accounts with access to stored cardholder data. [PCIDSS_QRGv3.pdf p.19]\n- Define and implement user-identification management policies and procedures for users and administrators across all system components. [PCIDSS_QRGv3.pdf p.19]\n- Authenticate every user with at least one factor: something they know, such as a password; something they have, such as a token or smart card; or something they are, such as a biometric. [PCIDSS_QRGv3.pdf p.19]\n- Use strong authentication methods and make passwords unreadable during transmission and storage through strong cryptography. [PCIDSS_QRGv3.pdf p.19]\n- Use two-factor authentication for remote network access originating outside the network by employees, administrators, and third parties, including vendors providing support or maintenance; using the same factor twice, such as two passwords, does not qualify. [PCIDSS_QRGv3.pdf p.20]\n- Develop, implement, and communicate authentication policies and procedures to all users. [PCIDSS_QRGv3.pdf p.20]\n- Prohibit group, shared, or generic IDs and authentication methods; service providers accessing customer environments must use unique authentication credentials for each customer environment. [PCIDSS_QRGv3.pdf p.20]\n- Assign authentication mechanisms such as physical tokens, smart cards, and certificates to individual accounts. [PCIDSS_QRGv3.pdf p.20]\n- Restrict access to databases containing cardholder data so user access occurs through programmatic methods and only database administrators have direct or query access. [PCIDSS_QRGv3.pdf p.20]",
+    "judgement": {
+      "claims_total": 16,
+      "claims_supported": 16,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        2,
+        3
+      ],
+      "facts_covered": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "question": 39,
+    "config": "cohere",
+    "query": "What share of online payments are made by card, and how must businesses protect the card numbers they store?",
+    "top_pages": [
+      4,
+      17,
+      14,
+      2,
+      14
+    ],
+    "rerank_seconds": 0.973,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.4,
+      "recall@5": 1.0,
+      "mrr": 0.5,
+      "map": 0.5833333333333333,
+      "ndcg@5": 0.6934264036172708
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.6,
+      "answer_correctness": 1.0
+    },
+    "answer": "Cards account for **41% of online payments globally**. [Payment-methods-guide.pdf p.17]\n\nBusinesses must render stored card numbers—the primary account number (PAN)—unreadable wherever stored, including on portable media, backups, logs, and wireless-network data. Acceptable protections include strong one-way hashing of the entire PAN, truncation, index tokens with securely stored pads, or strong cryptography. [PCIDSS_QRGv3.pdf p.14]",
+    "judgement": {
+      "claims_total": 3,
+      "claims_supported": 3,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        2,
+        3,
+        5
+      ],
+      "facts_covered": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "question": 40,
+    "config": "cohere",
+    "query": "What do PCI DSS and the FCA each require for authenticating users or customers?",
+    "top_pages": [
+      264,
+      261,
+      265,
+      244,
+      266
+    ],
+    "rerank_seconds": 1.158,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.2,
+      "recall@5": 0.3333333333333333,
+      "mrr": 1.0,
+      "map": 0.3333333333333333,
+      "ndcg@5": 0.5562983930884396
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.4,
+      "answer_correctness": 0.6666666666666666
+    },
+    "answer": "- **PCI DSS:** The provided documents don't answer this.\n\n- **FCA:** Strong customer authentication must use at least two independent factors from different categories: knowledge (something only the customer knows), possession (something only the customer holds), and inherence (something inherent to the customer). [payment-services-electronic-money-approach.pdf p.264] A breach of one factor must not compromise another, and authentication data must remain confidential. [payment-services-electronic-money-approach.pdf p.264] The authentication must generate a code that is accepted only once, does not reveal the factors, and cannot be recreated from previously generated codes. [payment-services-electronic-money-approach.pdf p.266]",
+    "judgement": {
+      "claims_total": 10,
+      "claims_supported": 10,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        5
+      ],
+      "facts_covered": [
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "question": 41,
+    "config": "cohere",
+    "query": "What do the FCA guidance and the PFMI expect when operations are seriously disrupted?",
+    "top_pages": [
+      104,
+      177,
+      100,
+      207,
+      38
+    ],
+    "rerank_seconds": 1.121,
+    "retrieval": {
+      "hit_rate@5": 1.0,
+      "precision@5": 0.6,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "map": 0.8055555555555555,
+      "ndcg@5": 0.9060254355346824
+    },
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 1.0,
+      "answer_correctness": 1.0
+    },
+    "answer": "- **FCA guidance:** Payment service providers must notify the FCA without undue delay of a major operational or security incident, submitting initial, intermediate, and final notifications. The initial notification should normally be made within four hours of detecting the incident, with intermediate reports whenever there is a relevant status update. [payment-services-electronic-money-approach.pdf p.207]\n\n- **PFMI:** An FMI’s business-continuity arrangements should support timely recovery and fulfilment of its obligations even after a wide-scale or major disruption. [principles-financial-market-infrastructures.pdf p.100] It should aim to resume operations within two hours—ideally with backup systems processing immediately—and complete settlement by the end of the day even in extreme circumstances. It must also be able to determine the status of every transaction at the time of disruption with certainty and promptly. [principles-financial-market-infrastructures.pdf p.104] A suitably resourced and staffed secondary site should be capable of taking over operations following a wide-scale disruption. [principles-financial-market-infrastructures.pdf p.104]",
+    "judgement": {
+      "claims_total": 11,
+      "claims_supported": 11,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "facts_covered": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "question": 42,
+    "config": "cohere",
+    "query": "How much does Stripe charge per transaction to process iDEAL payments?",
+    "top_pages": [
+      7,
+      23,
+      9,
+      6,
+      8
+    ],
+    "rerank_seconds": 1.163,
+    "retrieval": null,
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.0,
+      "answer_correctness": 1.0
+    },
+    "answer": "The provided documents don't answer this.",
+    "judgement": {
+      "claims_total": 0,
+      "claims_supported": 0,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [],
+      "facts_covered": [
+        1
+      ]
+    }
+  },
+  {
+    "question": 43,
+    "config": "cohere",
+    "query": "What is the maximum fine a merchant can receive for failing PCI DSS compliance?",
+    "top_pages": [
+      27,
+      5,
+      37,
+      4,
+      10
+    ],
+    "rerank_seconds": 1.25,
+    "retrieval": null,
+    "generation": {
+      "faithfulness": 1.0,
+      "hallucination": 0.0,
+      "answer_relevance": 1.0,
+      "context_relevance": 0.0,
+      "answer_correctness": 1.0
+    },
+    "answer": "The provided documents don't answer this.",
+    "judgement": {
+      "claims_total": 0,
+      "claims_supported": 0,
+      "unsupported_claims": [],
+      "answer_relevance": 1.0,
+      "useful_chunks": [],
+      "facts_covered": [
+        1
+      ]
+    }
+  }
+]
